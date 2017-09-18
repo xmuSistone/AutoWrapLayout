@@ -3,6 +3,7 @@ package com.stone.autowrap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         autoWrapLayout = (AutoWrapLayout) findViewById(R.id.wrap_layout);
         prepareDataList();
         prepareAdapter();
@@ -64,14 +65,25 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:// 点击返回图标事件
+                finish();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void prepareDataList() {
-        dataList.add("猩球崛起3:终极之战");
         dataList.add("蜘蛛侠：英雄归来");
         dataList.add("敦刻尔克");
         dataList.add("星际特工");
+        dataList.add("猩球崛起3:终极之战");
         dataList.add("赛车总动员");
         dataList.add("盗梦空间");
         dataList.add("机器人总动员");
+        dataList.add("蚁人");
         dataList.add("星际穿越");
         dataList.add("加勒比海盗");
         dataList.add("致命魔术");
@@ -87,17 +99,16 @@ public class MainActivity extends AppCompatActivity {
         dataList.add("普罗米修斯");
         dataList.add("这个男人来自地球");
         dataList.add("神奇女侠");
-        dataList.add("蚁人");
         dataList.add("海扁王");
         dataList.add("权力的游戏");
         dataList.add("风之谷");
         dataList.add("铁甲钢拳");
         dataList.add("狄仁杰之通天帝国");
+        dataList.add("超人：钢铁之躯");
         dataList.add("独立日");
         dataList.add("惊天魔盗团");
         dataList.add("金蝉脱壳");
         dataList.add("木乃伊");
-        dataList.add("超人：钢铁之躯");
         dataList.add("九层妖塔");
         dataList.add("金刚：骷髅岛");
         dataList.add("终结者");
